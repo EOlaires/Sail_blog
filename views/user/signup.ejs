@@ -1,0 +1,61 @@
+<div class="header">
+  <div class="navbar navbar-inverse navbar-fiexed-top">
+    <div class="container">
+      <h1 class="navbar-brand" style="color:#DBE8F9">Create your My Blog Account
+      </h1>
+    </div>
+  </div>
+</div>
+
+
+<div class="container"> <br> <br>
+  <div class="body">
+    <form action="/signup" method="post">
+      <div class="font14">
+        Name <br>
+          <% if (message) { %>
+            <input id='font14' type="text" placeholder="First" name="fname" value="<%=fname%>" required>
+          <% } else { %>
+            <input id='font14' type="text" placeholder="First" name="fname" required>
+          <% } %>
+          <% if (message) { %>
+            <input id='font14' type="text" placeholder="Last" name="lname" value="<%=lname%>" required>
+          <% } else { %>
+            <input id='font14' type="text" placeholder="Last" name="lname" required>
+          <% } %>
+      </div>
+      <div>
+        Choose your Username <br>
+          <% if (message) { %>
+            <input type="text" name="user" value="<%=user%>" required>
+          <% } else { %>
+            <input type="text" name="user" required>
+          <% } %>
+      </div>
+      <div>
+        Create a Password <br>
+        <input type="password" name="pass"required>
+      </div>
+      <div>
+        Confirm your Password <br>
+        <input type="password" name="confirmpass" required>
+      </div>
+
+      <div>
+        <% if (message) { %>
+          <%= message %>
+        <% } %>
+      </div>
+
+      <br>
+      <input type = "submit" value="Sign Up" class="btn">
+      <div>
+        <input type='hidden' name='newuser' value='true'>
+      </div>
+
+    </form>
+  </div>
+  <div class="link">
+    <a href="/signin">back to signin</a>
+  </div>
+</div>
