@@ -29,6 +29,17 @@
 
 module.exports = {
 
+
+  connections: {
+    mongo: {
+     module: (process.env.NODE_ENV == "test") ? "sails-memory" : "sails-mongo",
+     host: "localhost",
+     user: "",
+     password: "",
+     database: "sails_blog"
+    }
+  }
+
   /***************************************************************************
    * Your SSL certificate and key, if you want to be able to serve HTTP      *
    * responses over https:// and/or use websockets over the wss:// protocol  *

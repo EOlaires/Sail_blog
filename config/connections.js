@@ -57,7 +57,8 @@ module.exports.connections = {
   *                                                                          *
   ***************************************************************************/
   someMongodbServer: {
-    adapter: 'sails-mongo',
+    // adapter: 'sails-mongo',
+    adapter:  (process.env.NODE_ENV == "test") ? "sails-memory" : "sails-mongo",
     host: 'localhost',
     port: 27017,
     // user: 'username',

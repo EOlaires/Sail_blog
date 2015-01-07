@@ -15,13 +15,15 @@ module.exports = {
 
 	signup: function (req, res) {
 
-      var error_message = req.session.flash || "";
-      req.session.flash = "";
-      res.view({message:error_message.message, fname: error_message.fname, lname: error_message.lname, user: error_message.user});
+      //var error_message = req.session.flash || "";
+      //req.session.flash = "";
+      //res.view({message:error_message.message, fname: error_message.fname, lname: error_message.lname, user: error_message.user});
+      res.view({message: ""});
 
 	},
 
 	usersignin: function (req, res) {
+    console.log("asdaksjdhasljdhasl;jdhas ");
       async.auto({
         users: function(next) {
           var params = {
@@ -40,12 +42,13 @@ module.exports = {
           });
         }
     }, function (err, result) {
+
         if (err) {
           req.session.flash = err;
           res.redirect("/signin");
         }
         else {
-          console.log("eto un", result);
+        //  console.log("eto un", result);
           var user = result.users || {};
           req.session.user = user;
           res.redirect("/blog");
@@ -56,14 +59,16 @@ module.exports = {
 
 
 	usercreated: function (req, res) {
+
+    //console.log(req.params.all());
     if (req.param("pass") === req.param("confirmpass")) {
       async.auto({
         user: function(next) {
           var params = {
-          first_name : req.param("fname"),
-          last_name : req.param("lname"),
-          username : req.param("user"),
-          password : req.param("pass")
+            first_name : req.param("fname"),
+            last_name : req.param("lname"),
+            username : req.param("user"),
+            password : req.param("pass")
           };
           User.create(params)
             .exec(function (err, user) {         
@@ -74,8 +79,12 @@ module.exports = {
           });
         }
       }, function (err, result) {
+        //console.log("====");
+        //console.log(err);
+
           if (err) {
-            res.redirect("/signup");
+            //res.redirect("/signup");
+            res.view("user/signup", {message: "Username already exist!", fname: req.param("fname"), lname:req.param("lname"), user:req.param("")});
           }
           else {
             req.session.user = result.user;

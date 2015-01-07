@@ -36,29 +36,29 @@ module.exports.routes = {
     view: 'homepage'
   },
 
-  'get /signin': "UserController.signin",
+  'get /signin'           : "UserController.signin",
 
-  'post /signin': "UserController.usersignin",
+  'post /signin'          : "UserController.usersignin",
   
-  'get /signup': "UserController.signup",
+  'get /signup'           : "UserController.signup",
 
-  'post /signup': "UserController.usercreated",
+  'post /signup'          : "UserController.usercreated",
 
-  'get /blog': "BlogController.blog",
+  'get /blog'             : "BlogController.blog",
 
-  'get /blog/new': "BlogController.new",
+  'get /blog/new'         : "BlogController.new",
 
-  'post /blog': "BlogController.addblog",
+  'post /blog'            : "BlogController.addblog",
 
-  'get /blog/:id': "BlogController.view",
+  'get /blog/:id'         : "BlogController.view",
 
-  'get /blog/:id/edit': "BlogController.update",
+  'get /blog/:id/edit'    : "BlogController.update",
 
-  'post /blog/:id': "BlogController.updated",
+  'post /blog/:id'        : "BlogController.updated",
 
-  'get /blog/:id/delete' : "BlogController.delete",
+  'get /blog/:id/delete'  : "BlogController.delete",
 
-  'get /signout' : "UserController.signout"
+  'get /signout'          : "UserController.signout"
 
 
 

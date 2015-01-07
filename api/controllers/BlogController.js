@@ -55,11 +55,6 @@ module.exports = {
     async.auto({
       blogs: function(next) {
 
-        if (!req.param("titleblog")) {
-          next("Title is required");
-          console.log("test required");
-        }
-
         var params = {
           userid : req.session.user.id,
           title : req.param("titleblog"),
@@ -75,8 +70,7 @@ module.exports = {
       }
     },function(err, result) {
         if (err) {
-          console.log(err);
-          // res.redirect("/blog/new")
+          res.redirect("/blog/new");
         }
         else {
           res.redirect("/blog");
