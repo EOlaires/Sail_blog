@@ -1,7 +1,7 @@
 module.exports = function(Factory) {
 	Factory.define("user")
-		.attr("first_name", "hszdhsbfmdvfjdsf")
+		.attr("first_name", "Yuni")
 		.attr("last_name", "Olaires")
-		.attr("username", "vhvns")
+		.attr("username", "yolaires")
 		.attr("password", "zxc123")
 }

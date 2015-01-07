@@ -26,7 +26,8 @@ describe(TEST_NAME, function() {
 	});
 
 	describe("POST /signup (register a new user)", function() {
-		function blogUsers() {
+
+		it("should be able to add & register new User", function (done) {
 			_user = _.clone(user_obj);
 				var args = {
 					fname: _user.first_name,
@@ -35,41 +36,43 @@ describe(TEST_NAME, function() {
 					pass: _user.password,
 					confirmpass: _user.password
 				};
-		}
-
-		// it("should be able to add & register new User", function (done) {
-			
-		// 	//delete _user.first_name;
-		// 	request.post("/signup")
-		// 		.send(args)
-		// 		.expect(200)
-  //      			.expect("Location", "/blog")
-  //       		.expect(302, done);
-		// });
-
-		it("should be succesful", function() {
-			request.post("/signup")
-				.send(blogUsers.args)
-				.expect(200)
-				.end(function(err, res){
-					expect(err).to.not.exist;
-					done();
-				});
-		});
-
-		it("should return 'First Name is required' error when no delivery mode is passed", function() {
-			_user = _.clone(user_obj);
-			var args = {
-				fname: _user.first_name,
-				lname: _user.last_name,
-				user: _user.username,
-				pass: _user.password,
-				confirmpass: _user.password
-			};
 			request.post("/signup")
 				.send(args)
-				.expect
+				.expect(200)
+       			.expect("Location", "/blog")
+        		.expect(302, done);
 		});
+
+		// it("should be succesful", function(done) {
+		// 	request.post("/signup")
+		// 		.send(blogUsers.args)
+		// 		.expect(200)
+		// 		.end(function(err, res){
+		// 			expect(err).to.not.exist;
+		// 			done();
+		// 		});
+		// });
+
+		// it("should return 'First Name is required' error when no delivery mode is passed", function(done) {
+		// 	_user = _.clone(user_obj);
+		// 		var args = {
+		// 			fname: _user.first_name,
+		// 			lname: _user.last_name,
+		// 			user: _user.username,
+		// 			pass: _user.password,
+		// 			confirmpass: _user.password
+		// 		};
+		// 	request.post("/signup")	
+		// 		.send(args)
+		// 		.expect(200)
+		// 		.end(function(err,res){
+		// 			//expect(res.body.error).to.not.exist;
+		// 			//expect(res.body.error.code).to.be.equal();
+		// 			console.log("njdsdnfkejrfbne jrfjnfcerkjsdfbc ejrsfbc erjkdhfberj");
+		// 			console.log(res.body.error);
+		// 			done();
+		// 		});
+		// });
 
 	});
 
@@ -91,13 +94,12 @@ describe(TEST_NAME, function() {
 				user: _user.username,
 				pass: _user.password
 			};
-			//delete _user.first_name;
 			request.post("/signin")
 				.send(args)
 				.expect(200)
        			.expect("Location", "/blog")
         		.expect(302, done);
-		})
+		});
 	});
 
 });

@@ -2,6 +2,10 @@ require('test_helper');
 
 describe(TEST_NAME, function() {
 
+	before(function(done) {
+    	user = {id: 1, username: "zander"}
+    	signIn(user, done);
+ 	 });
 
   	describe("GET /blog", function () {
 
