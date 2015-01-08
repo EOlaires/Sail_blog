@@ -51,6 +51,10 @@ module.exports = {
         //  console.log("eto un", result);
           var user = result.users || {};
           req.session.user = user;
+          var sessionHelper = new SessionHelperService();
+          
+          sessionHelper.setSession(req, user);
+          console.log(req.session);
           res.redirect("/blog");
         }
     });
@@ -99,7 +103,8 @@ module.exports = {
 	},
 
 	signout: function (req, res) {
-		req.session.destroy();
+    var sessionHelper = new SessionHelperService();
+    sessionHelper.destroySession(req);
 		res.redirect("/signin");
 	}
 

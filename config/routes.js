@@ -44,7 +44,7 @@ module.exports.routes = {
 
   'post /signup'          : "UserController.usercreated",
 
-  'get /blog'             : "BlogController.blog",
+  'get /blogs'             : "BlogController.blog",
 
   'get /blog/new'         : "BlogController.new",
 
