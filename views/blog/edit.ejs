@@ -1,0 +1,69 @@
+<div class="header">
+  <div class="navbar navbar-inverse navbar-fiexed-top">
+    <div class="container">
+      <h1 class="navbar-brand" style="color:#DBE8F9">Update your My blog</h1>
+    </div>
+  </div>
+</div> <br> <br>
+
+  <div class="updateblog">
+    <form action="/blogs/<%=blog.id%>" method="post">
+        <input type="hidden" name="_method" value="put">    
+    
+      <div>
+        <input type="text" name="titleblog" style="width:1000px;" value="<%=blog.title%>"> <br>    
+      </div>
+
+      <div>
+          <textarea name="post" rows="20" style="width:1000px;"> <%=blog.post%> </textarea> <br>
+      </div>
+
+      <div align='center'>
+        <input class="btn" type="submit" value="post"> <br>
+      </div>
+
+      <div align='right'>
+        <a class="button-link" href="/blogs">back</a>
+      </div>
+
+    
+    </form>
+  </div>
+
+
+
+
+
+
+  
+
+<% /*Object.keys(blog).forEach(function(key) { %>
+  <div class="updateblog">
+    <form action="/blogs/<%=blog[key].id%>" method="put" _method="put">
+
+
+      <div>
+        <input type="text" name="titleblog" style="width:1000px;" value="<%=blog[key].title%>"> <br>    
+      </div>
+
+      <div>
+          <textarea name="post" rows="20" style="width:1000px;"> <%=blog[key].post%> </textarea> <br>
+      </div>
+
+      <div align='center'>
+        <input class="btn" type="submit" value="post"> <br>
+      </div>
+
+      <div align='right'>
+        <a class="button-link" href="/blogs">back</a>
+      </div>
+
+    
+    </form>
+  </div>
+<% }); */ %>
+
+
+
+
+

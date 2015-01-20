@@ -42,23 +42,23 @@ module.exports.routes = {
   
   'get /signup'           : "UserController.signup",
 
-  'post /signup'          : "UserController.usercreated",
+  'post /signup'          : "UserController.create",
 
-  'get /blogs'             : "BlogController.blog",
+  'get /signout'          : "UserController.signout",
 
-  'get /blog/new'         : "BlogController.new",
+  'get /blogs'             : "BlogController.index",
 
-  'post /blog'            : "BlogController.addblog",
+  'get /blogs/new'         : "BlogController.new",
 
-  'get /blog/:id'         : "BlogController.view",
+  'post /blogs'            : "BlogController.create",
 
-  'get /blog/:id/edit'    : "BlogController.update",
+  'get /blogs/:id'         : "BlogController.show",
 
-  'post /blog/:id'        : "BlogController.updated",
+  'get /blogs/:id/edit'    : "BlogController.edit",
 
-  'get /blog/:id/delete'  : "BlogController.delete",
+  'put /blogs/:id'         : "BlogController.update",
 
-  'get /signout'          : "UserController.signout"
+  'delete /blogs/:id'      : "BlogController.destroy"
 
 
 

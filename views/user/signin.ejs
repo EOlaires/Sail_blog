@@ -9,11 +9,11 @@
 <div class = "container"> <br> <br>
 	<div class= "body">
     <form action="/signin" method="post">
-      <input type = "text", placeholder = "Username", name = "user", size = "25" required> <br>
-      <input type = "password", placeholder = "Password", name = "pass", size = "25" required> <br>
       <% if (error_message) { %>
         <p><%- error_message %></p>
       <% } %>
+      <input type = "text", placeholder = "Username", name = "user", size = "25" required> <br>
+      <input type = "password", placeholder = "Password", name = "pass", size = "25" required> <br>   
       <input type = "submit", value="Sign In" class="btn">
     </form>
 	</div>

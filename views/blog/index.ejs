@@ -11,7 +11,7 @@
   <table align="center">
     <tr>
       <td>
-        <a class="button-link" href="/blog/new"> New Blog </a>
+        <a class="button-link" href="/blogs/new"> New Blog </a>
       </td>
     </tr>
   </table>
@@ -20,13 +20,17 @@
     <% blog.forEach(function(blg){ %>
       <tr>
         <td width="80%", align="left">
-          <a href="/blog/<%=blg.id%>"> <%=blg.title%> </a> 
+          <a href="/blogs/<%=blg.id%>"> <%=blg.title%> </a> 
         </td>
         <td width="20%", align="center">
-          <a href="/blog/<%=blg.id%>/edit"> revise this blog </a> 
+          <a href="/blogs/<%=blg.id%>/edit"> revise this blog </a> 
         </td>
         <td align="right">
-          <a href="/blog/<%=blg.id%>/delete" onClick="return confirm('Sigurado Ka?');"> remove </a> <br>
+          <form action="/blogs/<%=blg.id%>" method="post">
+            <input type="hidden" name="_method" value="delete">
+            <input type="submit" value="remove">
+          </form> 
+          <!-- <a href="/blogs/<%=blg.id%>/delete" onClick="return confirm('Sigurado Ka?');"> remove </a> <br> -->
         </td>
       </tr>
     <% }) %>  

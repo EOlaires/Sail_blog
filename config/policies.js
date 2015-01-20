@@ -53,10 +53,10 @@ module.exports.policies = {
 	// }
 
   BlogController: {
-    "blog" : "session",
+    "index" : "session",
     "new" : "session",
-    "view" : "session",
-    "update" : "session",
+    "show" : "session",
+    "edit" : "session",
 
   }
 };

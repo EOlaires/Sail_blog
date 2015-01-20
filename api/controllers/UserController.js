@@ -13,15 +13,16 @@ module.exports = {
 		res.view({error_message: error_message});
 	},
 
+//-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=--=-=-=
 	signup: function (req, res) {
 
       //var error_message = req.session.flash || "";
       //req.session.flash = "";
       //res.view({message:error_message.message, fname: error_message.fname, lname: error_message.lname, user: error_message.user});
       res.view({message: ""});
-
 	},
 
+//-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=--=-=-=
 	usersignin: function (req, res) {
     console.log("asdaksjdhasljdhasl;jdhas ");
       async.auto({
@@ -55,14 +56,14 @@ module.exports = {
           
           sessionHelper.setSession(req, user);
           console.log(req.session);
-          res.redirect("/blog");
+          res.redirect("/blogs");
         }
     });
 
   },
 
-
-	usercreated: function (req, res) {
+//-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=--=-=-=
+	create: function (req, res) {
 
     //console.log(req.params.all());
     if (req.param("pass") === req.param("confirmpass")) {
@@ -88,11 +89,11 @@ module.exports = {
 
           if (err) {
             //res.redirect("/signup");
-            res.view("user/signup", {message: "Username already exist!", fname: req.param("fname"), lname:req.param("lname"), user:req.param("")});
+            res.view("user/signup", {message: "Username already exist!", fname: req.param("fname"), lname:req.param("lname"), user:""});
           }
           else {
             req.session.user = result.user;
-            res.redirect("/blog");
+            res.redirect("/blogs");
           }
       });
     } 
@@ -102,6 +103,7 @@ module.exports = {
     } 
 	},
 
+//-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=--=-=-=
 	signout: function (req, res) {
     var sessionHelper = new SessionHelperService();
     sessionHelper.destroySession(req);
