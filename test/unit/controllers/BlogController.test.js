@@ -7,7 +7,7 @@ describe(TEST_NAME, function() {
  //    	testSignin(user, done);
  // 	 });
 
-	 var agent = request.agent() ;
+	 //var agent = request.agent() ;
 
 	  // before(function(done){
 	  //     agent
@@ -19,6 +19,8 @@ describe(TEST_NAME, function() {
 	  //         done();
 	  //       });
 	  // });
+
+	
 
 
   	describe("GET /blog", function () {

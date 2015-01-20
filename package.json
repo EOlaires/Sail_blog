@@ -30,7 +30,9 @@
   },
   "scripts": {
     "start": "node app.js",
-    "debug": "node debug app.js"
+    "debug": "node debug app.js",
+    "test": "make test test/unit/controllers/UserController.test.js",
+    "blogtest": "make test test/unit/controllers/BlogController.test.js"
   },
   "main": "app.js",
   "repository": {

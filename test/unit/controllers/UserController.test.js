@@ -1,4 +1,4 @@
-require('test_helper');
+require("test_helper");
 
 describe(TEST_NAME, function() {
 
@@ -39,7 +39,7 @@ describe(TEST_NAME, function() {
 			request.post("/signup")
 				.send(args)
 				.expect(200)
-       			.expect("Location", "/blog")
+       			.expect("Location", "/blogs")
         		.expect(302, done);
 		});
 
@@ -97,7 +97,7 @@ describe(TEST_NAME, function() {
 			request.post("/signin")
 				.send(args)
 				.expect(200)
-       			.expect("Location", "/blog")
+       			.expect("Location", "/blogs")
         		.expect(302, done);
 		});
 	});
