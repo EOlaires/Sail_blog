@@ -4,4 +4,7 @@ module.exports = function(Factory) {
 		.attr("last_name", "Olaires")
 		.attr("username", "yolaires")
 		.attr("password", "zxc123")
+	Factory.define("blogcontent")
+		.attr("title", "samplehzhjz")
+		.attr("post", "hahahhaha")
 }

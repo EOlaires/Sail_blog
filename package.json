@@ -1,7 +1,7 @@
 {
   "name": "sail_blog",
   "private": true,
-  "version": "0.0.0",     
+  "version": "0.0.0",
   "description": "a Sails application",
   "keywords": [],
   "dependencies": {
@@ -26,7 +26,8 @@
     "sails": "~0.10.5",
     "sails-disk": "~0.10.0",
     "sails-memory": "^0.10.3",
-    "sails-mongo": "^0.10.4"
+    "sails-mongo": "^0.10.4",
+    "sails-test-helper": "^0.3.2"
   },
   "scripts": {
     "start": "node app.js",
@@ -46,7 +47,7 @@
     "chai": "^1.10.0",
     "mocha": "^2.1.0",
     "require-all": "^1.0.0",
-    "sails-factory": "^0.2.3",
+    "sails-factory": "^0.2.5",
     "sinon": "^1.12.2",
     "sinon-chai": "^2.6.0",
     "supertest": "^0.15.0",
