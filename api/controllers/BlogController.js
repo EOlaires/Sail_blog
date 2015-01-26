@@ -10,7 +10,6 @@ module.exports = {
 
   //display a list of all blogs
 	index: function (req, res) {	
-    console.log("yuni index");
     async.auto({
       blogs: function(next) {
         var params = {
@@ -51,14 +50,12 @@ module.exports = {
 //--=-=-=-=-=-=-=-=--=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
   //return an HTML form for creating a new blog
 	new: function (req, res) {
-      console.log("yuni new");
 			res.view();
   },
 
 //--=-=-=-=-=-=-=-=--=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
   //create a new blog
   create: function (req, res) {
-    console.log("sample1");
     async.auto({
       blogs: function(next) {
 
@@ -67,7 +64,6 @@ module.exports = {
           title : req.param("titleblog"),
           post : req.param("post"),
         };
-        console.log(params);
         Blog.create(params)
           .exec(function (err, blog) {
             if (err) {
@@ -78,12 +74,9 @@ module.exports = {
       }
     },function(err, result) {
         if (err) {
-          console.log("sample error");
-          //console.log(err);
           res.redirect("/blogs/new");
         }
         else {
-          console.log("sample");
           res.redirect("/blogs");
         }
     })
@@ -92,14 +85,11 @@ module.exports = {
 //-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=--=-=-=
   //display a specific blog
   show: function (req, res) {
-    console.log("------sdf-dsfsdf-df-dsf-d");
     async.auto({ 
       blogs: function(next) {
         var params = {
           id : req.param("id")
         };
-        console.log("params:");
-        console.log(params);
         Blog.find(params)
           .exec(function (err, blog) {
             if (err) {
@@ -116,15 +106,13 @@ module.exports = {
         else {
           var blog = result.blogs
           res.view({blog: blog});
-          console.log(blog);
         }
     });
   },
 
 //-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=--=-=-=
-  //eturn an HTML form for editing a blog
+  //return an HTML form for editing a blog
   edit: function (req, res) {
-    console.log("edieediteditedit edit edit edit");
     async.auto({
       blogs: function(next) {
         var params = {
@@ -138,7 +126,6 @@ module.exports = {
             }
             next(null, blog);
         });
-        //next(null, blog);
       }
     }, function(err, result){
         if (err) {
@@ -147,16 +134,13 @@ module.exports = {
         }
         else {
           var blog = result.blogs;
-          console.log(blog);
-          res.view({blog: blog}); // why result.blogs ung .blogs un ung name ng blogs function sa taas pwede ka pa kasi magkarron dyan ng dagdag na nd naman na irrelevant pra ispecify lang
+          res.view({blog: blog}); 
         }
     });
   },
 
 //-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=--=-=-=
   update: function (req, res) {
-
-    console.log("Na-Route");
 
     async.auto({
       blogs : function(next) {
@@ -190,7 +174,6 @@ module.exports = {
           res.redirect("/blogs/" + req.param("id") + "/edit");
         }
         else {
-          console.log("na-route ulit");
           res.redirect("/blogs/" + req.param("id"));
         }
     });
@@ -198,7 +181,6 @@ module.exports = {
 
 //-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=--=-=-=
   destroy: function (req, res) {
-    console.log("ayos");
     async.auto({
       blogs : function(next) {
         var params = {
@@ -227,7 +209,6 @@ module.exports = {
           sails.log.error(err);
         }
         else {
-          console.log("sobrang ayos");
           res.redirect("/blogs");
         }
     });

@@ -27,9 +27,7 @@ describe(TEST_NAME, function() {
 				});
 			}
 		}, function (err, result) {
-			console.log(result);
 			Cookies = result.user_login;
-			console.log(Cookies);
 			done();
 		});
 	});
@@ -41,8 +39,6 @@ describe(TEST_NAME, function() {
 	    		.expect(200)
 	    		.end(function (err, res){
 	    			expect(err).to.not.exists;
-	    			console.log(err);
-	    			//console.log(res.body);
 	    			done();
 	    		});
 	    });
@@ -63,7 +59,6 @@ describe(TEST_NAME, function() {
 		it("should display updated list of blogs", function (done) {
 			_blog = _.clone(blog_obj);
 			var args = {
-	          //userid : Cookies,
 	          titleblog : _blog.title,
 	          post : _blog.post
 	        };
@@ -102,11 +97,10 @@ describe(TEST_NAME, function() {
 	});
 
 	describe("PUT /blogs/:id", function () {
-		it("should display a specific blog", function (done) {
+		it("should successfully update the blog", function (done) {
 			
 			_blog = _.clone(blog_obj);
 			var args = {
-	          //userid : Cookies,
 	          titleblog : _blog.title,
 	          post : _blog.post
 	        };
@@ -120,7 +114,7 @@ describe(TEST_NAME, function() {
 	});
 
 	describe("DELETE /blogs/:id", function () {
-		it("should display a specific blog", function (done) {
+		it("should successfully delete the blog", function (done) {
 			
 			request.delete("/blogs/1")
 				.expect(200)

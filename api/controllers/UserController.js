@@ -15,16 +15,11 @@ module.exports = {
 
 //-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=--=-=-=
 	signup: function (req, res) {
-
-      //var error_message = req.session.flash || "";
-      //req.session.flash = "";
-      //res.view({message:error_message.message, fname: error_message.fname, lname: error_message.lname, user: error_message.user});
-      res.view({message: ""});
+    res.view({message: ""});
 	},
 
 //-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=--=-=-=
 	usersignin: function (req, res) {
-    console.log("asdaksjdhasljdhasl;jdhas ");
       async.auto({
         users: function(next) {
           var params = {
@@ -49,13 +44,11 @@ module.exports = {
           res.redirect("/signin");
         }
         else {
-        //  console.log("eto un", result);
           var user = result.users || {};
           req.session.user = user;
           var sessionHelper = new SessionHelperService();
           
           sessionHelper.setSession(req, user);
-          console.log(req.session);
           res.redirect("/blogs");
         }
     });
@@ -65,7 +58,6 @@ module.exports = {
 //-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=--=-=-=
 	create: function (req, res) {
 
-    //console.log(req.params.all());
     if (req.param("pass") === req.param("confirmpass")) {
       async.auto({
         user: function(next) {
@@ -84,11 +76,8 @@ module.exports = {
           });
         }
       }, function (err, result) {
-        //console.log("====");
-        //console.log(err);
 
           if (err) {
-            //res.redirect("/signup");
             res.view("user/signup", {message: "Username already exist!", fname: req.param("fname"), lname:req.param("lname"), user:""});
           }
           else {
@@ -98,7 +87,6 @@ module.exports = {
       });
     } 
     else {
-      //req.session.flash = {message: "Mismatch Password", fname: req.param("fname"), lname:req.param("lname"), user:req.param("user")};
       res.view("user/signup", {message: "Mismatch Password", fname: req.param("fname"), lname:req.param("lname"), user:req.param("user")});
     } 
 	},
